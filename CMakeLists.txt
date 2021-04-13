@@ -13,13 +13,16 @@ project(raytrace_on_cpu)
 #include(cmake_config)
 #include(raytrace_on_cpu_config)
 
+set(SOURCES src/vec3.cpp src/ray.cpp src/camera.cpp src/sphere.cpp src/hitableList.cpp src/main.cpp)
+
 ############################################################
 # Create an executable
 ############################################################
 
 # Add an executable with the above sources
-add_executable(raytrace_on_cpu src/main.cpp)
+add_executable(raytrace_on_cpu ${SOURCES})
 
 #VCPKG packages and libs
 find_path(STB_INCLUDE_DIRS "stb.h")
-target_include_directories(raytrace_on_cpu PRIVATE ${STB_INCLUDE_DIRS})
+#target_include_directories(raytrace_on_cpu PRIVATE ${STB_INCLUDE_DIRS})
+target_include_directories(raytrace_on_cpu PRIVATE ${STB_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include)

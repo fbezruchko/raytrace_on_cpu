@@ -29,6 +29,9 @@ public:
     float length();
     float lengthSqr();
     void makeUnitVector();
+    static vec3 random();
+    static vec3 random(float, float);
+    static vec3 randomInUnitSphere();
 
     float e[3];
 };
